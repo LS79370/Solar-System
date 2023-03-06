@@ -19,6 +19,12 @@ public class SimuManager : MonoBehaviour
 
       foreach (GameObject go_i in goPlanets)
       {
+         if(go_i.name != "Sun")
+         {
+            go_i.GetComponent<TrailRenderer>().startWidth = 10f;
+            go_i.GetComponent<TrailRenderer>().endWidth = 10f;
+         }
+
          string sName = go_i.name;
          float fDistanceOfCenter, fG, fMass, fSize;
 
@@ -84,7 +90,7 @@ public class SimuManager : MonoBehaviour
          }
          fDistanceOfCenter *= 10f;
          fG = 100f;
-         go_i.GetComponent<Planet>().InitPlanet(sName, fDistanceOfCenter, fG, fMass, fSize);
+         go_i.GetComponent<Planet>().InitPlanet(sName, fDistanceOfCenter, fG, fMass, fSize);  
       }
       InitVelocity();
    }
